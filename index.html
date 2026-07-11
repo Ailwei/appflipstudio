@@ -1,4 +1,5 @@
 from pathlib import Path
+
 html = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,21 @@ nav{position:fixed;top:0;width:100%;background:rgba(8,17,31,.8);backdrop-filter:
 .wrap{width:min(1120px,92%);margin:auto}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}
-.logo img{height:42px}
+.logo-circle{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at center,#2563eb 0%,#ec4899 100%);
+  border:2px solid #20314d;
+}
+.logo-circle img{
+  width:80%;
+  height:auto;
+}
 .links a{margin-left:24px;color:#b7c7e6}
 header{min-height:100vh;display:flex;align-items:center;background:
 radial-gradient(circle at top,#2563eb55,transparent 45%),
@@ -46,8 +61,10 @@ footer{border-top:1px solid #20314d;padding:50px 0;color:#9fb2d2}
 <nav>
 <div class="wrap nav">
 <div class="logo">
-<img src="images/logo.jpg" alt="Logo">
-<span>AppFlipStudio</span>
+  <div class="logo-circle">
+    <img src="images/logo-round.png" alt="AppFlipStudio Logo">
+  </div>
+  <span>AppFlipStudio</span>
 </div>
 <div class="links">
 <a href="#products">Products</a>
@@ -109,6 +126,7 @@ footer{border-top:1px solid #20314d;padding:50px 0;color:#9fb2d2}
 </body>
 </html>
 """
-path="/mnt/data/index.html"
-Path(path).write_text(html,encoding="utf-8")
+
+path = "/mnt/data/index.html"
+Path(path).write_text(html, encoding="utf-8")
 print(path)
