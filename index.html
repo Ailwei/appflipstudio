@@ -1,274 +1,114 @@
-<!DOCTYPE html>
+from pathlib import Path
+html = """<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AppFlipStudio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0F172A;
-      color:#F8FAFC;
-      line-height:1.6;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .container{
-      width:min(1100px,90%);
-      margin:auto;
-    }
-
-    /* Hero */
-
-    header{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      background:
-      radial-gradient(circle at top,#2563EB22,transparent 50%);
-    }
-
-    .hero h1{
-      font-size:4rem;
-      font-weight:800;
-      margin-bottom:20px;
-    }
-
-    .hero h2{
-      font-size:2rem;
-      color:#38BDF8;
-      margin-bottom:25px;
-    }
-
-    .hero p{
-      max-width:700px;
-      margin:auto;
-      color:#CBD5E1;
-      font-size:1.1rem;
-      margin-bottom:40px;
-    }
-
-    .btn{
-      display:inline-block;
-      background:#2563EB;
-      padding:16px 34px;
-      border-radius:12px;
-      font-weight:600;
-      transition:.25s;
-    }
-
-    .btn:hover{
-      background:#1D4ED8;
-      transform:translateY(-2px);
-    }
-
-    /* Sections */
-
-    section{
-      padding:100px 0;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:2.3rem;
-      margin-bottom:50px;
-    }
-
-    .card{
-      background:#1E293B;
-      border:1px solid #334155;
-      border-radius:18px;
-      padding:45px;
-      max-width:750px;
-      margin:auto;
-      text-align:center;
-    }
-
-    .card h3{
-      font-size:2rem;
-      margin-bottom:18px;
-    }
-
-    .card p{
-      color:#CBD5E1;
-      margin-bottom:35px;
-    }
-
-    footer{
-      border-top:1px solid #334155;
-      padding:40px 0;
-    }
-
-    .footer{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      align-items:center;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:25px;
-      color:#94A3B8;
-    }
-
-    .footer-links a:hover{
-      color:#38BDF8;
-    }
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:2.8rem;
-      }
-
-      .hero h2{
-        font-size:1.5rem;
-      }
-
-      .footer{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      .footer-links{
-        flex-direction:column;
-        gap:12px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AppFlipStudio | Building Apps That Solve Real Problems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:#08111f;color:#eef4ff}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;width:100%;background:rgba(8,17,31,.8);backdrop-filter:blur(14px);border-bottom:1px solid #20314d;z-index:10}
+.wrap{width:min(1120px,92%);margin:auto}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}
+.logo img{height:42px}
+.links a{margin-left:24px;color:#b7c7e6}
+header{min-height:100vh;display:flex;align-items:center;background:
+radial-gradient(circle at top,#2563eb55,transparent 45%),
+linear-gradient(#08111f,#0d1728)}
+.hero{text-align:center;padding-top:80px}
+.badge{display:inline-block;background:#17315c;border:1px solid #2d5ac0;color:#7dd3fc;padding:8px 16px;border-radius:999px;margin-bottom:20px}
+h1{font-size:clamp(3rem,7vw,5rem);margin-bottom:18px}
+.sub{font-size:1.3rem;color:#60a5fa;margin-bottom:20px}
+.hero p{max-width:760px;margin:auto;color:#c5d3eb;font-size:1.1rem;line-height:1.8}
+.btn{display:inline-block;margin-top:40px;background:#2563eb;padding:16px 34px;border-radius:14px;font-weight:700}
+section{padding:90px 0}
+.title{text-align:center;font-size:2.4rem;margin-bottom:50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.card{background:#132238;border:1px solid #22385b;border-radius:22px;padding:34px;transition:.3s}
+.card:hover{transform:translateY(-8px)}
+.status{display:inline-block;background:#164e2b;color:#86efac;padding:6px 12px;border-radius:999px;font-size:.9rem;margin:16px 0}
+.card h3{font-size:1.8rem;margin-bottom:10px}
+.card p{color:#c7d5ec;line-height:1.8}
+.mission{max-width:820px;margin:auto;text-align:center;color:#c7d5ec;font-size:1.08rem;line-height:1.9}
+footer{border-top:1px solid #20314d;padding:50px 0;color:#9fb2d2}
+.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:700px){.links{display:none}.footer{text-align:center;justify-content:center}}
+</style>
 </head>
 <body>
+<nav>
+<div class="wrap nav">
+<div class="logo">
+<img src="logo.png" alt="Logo">
+<span>AppFlipStudio</span>
+</div>
+<div class="links">
+<a href="#products">Products</a>
+<a href="#mission">Mission</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
 
 <header>
-
-<div class="container hero">
-
-<h1>AppFlipStudio</h1>
-
-<h2>Building Apps That Solve Real Problems.</h2>
-
-<p>
-We create modern software focused on productivity,
-education, and everyday challenges.
-Our mission is to build intuitive, reliable applications
-that make everyday tasks simpler.
-</p>
-
-<a href="#apps" class="btn">
-View Our Apps
-</a>
-
+<div class="wrap hero">
+<div class="badge">Independent Software Studio • South Africa</div>
+<h1>Building Apps That Solve Real Problems.</h1>
+<div class="sub">Simple. Useful. Reliable.</div>
+<p>AppFlipStudio develops thoughtfully designed software that helps students and individuals stay organised, save time, and manage everyday life through intuitive digital experiences.</p>
+<a class="btn" href="#products">Explore Our Products</a>
 </div>
-
 </header>
 
-<section id="apps">
-
-<div class="container">
-
-<h2 class="section-title">
-Featured App
-</h2>
-
+<section id="products">
+<div class="wrap">
+<h2 class="title">Our Products</h2>
+<div class="grid">
 <div class="card">
-
-<h3>CampusAmigo</h3>
-
-<p>
-Stay organized throughout your academic journey with
-CampusAmigo. Designed for university students,
-it helps manage assignments, schedules,
-deadlines, and academic life—all in one place.
-</p>
-
-<a href="#" class="btn">
-📱 Download on Google Play
-</a>
-
+<h3>🎓 CampusAmigo</h3>
+<div class="status">Launching Soon</div>
+<p>CampusAmigo helps university students organise assignments, class schedules, deadlines, academic progress and campus life in one easy-to-use application.</p>
 </div>
-
+<div class="card">
+<h3>💸 U Owe Me</h3>
+<div class="status">Launching Soon</div>
+<p>U Owe Me is a lender utility app that helps users track who owes them money, repayment history, outstanding balances and lending records from one secure place.</p>
 </div>
-
+</div>
+</div>
 </section>
 
-<section>
-
-<div class="container">
-
-<h2 class="section-title">
-Coming Soon
-</h2>
-
-<div class="card">
-
-<p style="font-size:1.15rem">
-We're actively developing new applications designed
-to solve real-world problems across education,
-productivity, and business.
-
-<br><br>
-
-Stay tuned for future releases from AppFlipStudio.
-</p>
-
+<section id="mission">
+<div class="wrap">
+<h2 class="title">Our Mission</h2>
+<p class="mission">At AppFlipStudio, we believe great software starts with solving real problems. Every application we build is focused on simplicity, performance and creating practical value for everyday users.</p>
 </div>
-
-</div>
-
 </section>
 
-<footer>
-
-<div class="container footer">
-
+<footer id="contact">
+<div class="wrap footer">
 <div>
-
 <h3>AppFlipStudio</h3>
-
-<p style="color:#94A3B8">
-Building software with purpose.
-</p>
-
+<p>Building software that makes everyday life easier.</p>
 </div>
-
-<div class="footer-links">
-
-<a href="#">Privacy Policy</a>
-
-<a href="#">Terms & Conditions</a>
-
-<a href="#">Contact</a>
-
+<div>
+<p><a href="#">Privacy Policy</a></p>
+<p><a href="#">Terms &amp; Conditions</a></p>
+<p>Email: hello@appflipstudio.co.za</p>
 </div>
-
 </div>
-
-<div style="text-align:center;margin-top:35px;color:#64748B;">
-© 2026 AppFlipStudio. All rights reserved.
-</div>
-
+<p style="text-align:center;margin-top:30px">© 2026 AppFlipStudio. All rights reserved.</p>
 </footer>
-
 </body>
 </html>
+"""
+path="/mnt/data/index.html"
+Path(path).write_text(html,encoding="utf-8")
+print(path)
