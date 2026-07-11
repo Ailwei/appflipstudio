@@ -18,21 +18,24 @@ nav{position:fixed;top:0;width:100%;background:rgba(8,17,31,.8);backdrop-filter:
 .wrap{width:min(1120px,92%);margin:auto}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}
-.logo-circle{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:radial-gradient(circle at center,#2563eb 0%,#ec4899 100%);
-  border:2px solid #20314d;
+.logo-circle {
+  width: 64px;          /* slightly larger circle */
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #2563eb 0%, #ec4899 100%);
+  border: 2px solid #20314d;
+  overflow: hidden;
 }
-.logo-circle img{
-  width:80%;
-  height:auto;
+
+.logo-circle img {
+  max-width: 90%;       /* ensures logo fits inside */
+  max-height: 90%;      /* keeps proportions */
+  object-fit: contain;  /* prevents stretching */
 }
+
 .links a{margin-left:24px;color:#b7c7e6}
 header{min-height:100vh;display:flex;align-items:center;background:
 radial-gradient(circle at top,#2563eb55,transparent 45%),
