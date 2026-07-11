@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppFlipStudio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0F172A;
+      color:#F8FAFC;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1100px,90%);
+      margin:auto;
+    }
+
+    /* Hero */
+
+    header{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:
+      radial-gradient(circle at top,#2563EB22,transparent 50%);
+    }
+
+    .hero h1{
+      font-size:4rem;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    .hero h2{
+      font-size:2rem;
+      color:#38BDF8;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#CBD5E1;
+      font-size:1.1rem;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#2563EB;
+      padding:16px 34px;
+      border-radius:12px;
+      font-weight:600;
+      transition:.25s;
+    }
+
+    .btn:hover{
+      background:#1D4ED8;
+      transform:translateY(-2px);
+    }
+
+    /* Sections */
+
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.3rem;
+      margin-bottom:50px;
+    }
+
+    .card{
+      background:#1E293B;
+      border:1px solid #334155;
+      border-radius:18px;
+      padding:45px;
+      max-width:750px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .card h3{
+      font-size:2rem;
+      margin-bottom:18px;
+    }
+
+    .card p{
+      color:#CBD5E1;
+      margin-bottom:35px;
+    }
+
+    footer{
+      border-top:1px solid #334155;
+      padding:40px 0;
+    }
+
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
+      align-items:center;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:25px;
+      color:#94A3B8;
+    }
+
+    .footer-links a:hover{
+      color:#38BDF8;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.8rem;
+      }
+
+      .hero h2{
+        font-size:1.5rem;
+      }
+
+      .footer{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .footer-links{
+        flex-direction:column;
+        gap:12px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+
+<div class="container hero">
+
+<h1>AppFlipStudio</h1>
+
+<h2>Building Apps That Solve Real Problems.</h2>
+
+<p>
+We create modern software focused on productivity,
+education, and everyday challenges.
+Our mission is to build intuitive, reliable applications
+that make everyday tasks simpler.
+</p>
+
+<a href="#apps" class="btn">
+View Our Apps
+</a>
+
+</div>
+
+</header>
+
+<section id="apps">
+
+<div class="container">
+
+<h2 class="section-title">
+Featured App
+</h2>
+
+<div class="card">
+
+<h3>CampusAmigo</h3>
+
+<p>
+Stay organized throughout your academic journey with
+CampusAmigo. Designed for university students,
+it helps manage assignments, schedules,
+deadlines, and academic life—all in one place.
+</p>
+
+<a href="#" class="btn">
+📱 Download on Google Play
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Coming Soon
+</h2>
+
+<div class="card">
+
+<p style="font-size:1.15rem">
+We're actively developing new applications designed
+to solve real-world problems across education,
+productivity, and business.
+
+<br><br>
+
+Stay tuned for future releases from AppFlipStudio.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<h3>AppFlipStudio</h3>
+
+<p style="color:#94A3B8">
+Building software with purpose.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Contact</a>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:35px;color:#64748B;">
+© 2026 AppFlipStudio. All rights reserved.
+</div>
+
+</footer>
+
+</body>
+</html>
