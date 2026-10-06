@@ -1,6 +1,4 @@
-from pathlib import Path
-
-html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -18,24 +16,22 @@ nav{position:fixed;top:0;width:100%;background:rgba(8,17,31,.8);backdrop-filter:
 .wrap{width:min(1120px,92%);margin:auto}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
 .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem}
-.logo-circle {
-  width: 64px;          /* slightly larger circle */
-  height: 64px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, #2563eb 0%, #ec4899 100%);
-  border: 2px solid #20314d;
-  overflow: hidden;
+.logo-circle{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at center,#2563eb 0%,#ec4899 100%);
+  border:2px solid #20314d;
+  overflow:hidden;
 }
-
-.logo-circle img {
-  max-width: 100%;       /* ensures logo fits inside */
-  max-height: 100%;      /* keeps proportions */
-  object-fit: contain;  /* prevents stretching */
+.logo-circle img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
 }
-
 .links a{margin-left:24px;color:#b7c7e6}
 header{min-height:100vh;display:flex;align-items:center;background:
 radial-gradient(circle at top,#2563eb55,transparent 45%),
@@ -52,6 +48,8 @@ section{padding:90px 0}
 .card{background:#132238;border:1px solid #22385b;border-radius:22px;padding:34px;transition:.3s}
 .card:hover{transform:translateY(-8px)}
 .status{display:inline-block;background:#164e2b;color:#86efac;padding:6px 12px;border-radius:999px;font-size:.9rem;margin:16px 0}
+.download{display:inline-block;background:#2563eb;color:#fff;padding:10px 20px;border-radius:12px;font-weight:700;font-size:.95rem;margin:16px 0;transition:.3s}
+.download:hover{background:#1d4ed8;transform:translateY(-2px)}
 .card h3{font-size:1.8rem;margin-bottom:10px}
 .card p{color:#c7d5ec;line-height:1.8}
 .mission{max-width:820px;margin:auto;text-align:center;color:#c7d5ec;font-size:1.08rem;line-height:1.9}
@@ -98,7 +96,7 @@ footer{border-top:1px solid #20314d;padding:50px 0;color:#9fb2d2}
 </div>
 <div class="card">
 <h3>💸 U Owe Me</h3>
-<div class="status">Launching Soon</div>
+<a class="download" href="https://play.google.com/store/apps/details?id=com.uoweme.app" target="_blank" rel="noopener">⬇ Get it on Google Play</a>
 <p>U Owe Me is a lender utility app that helps users track who owes them money, repayment history, outstanding balances and lending records from one secure place.</p>
 </div>
 </div>
